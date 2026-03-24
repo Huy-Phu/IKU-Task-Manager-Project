@@ -1,0 +1,404 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Trang-1" id="muGdfcwMHnSmByLtH7ip">
+    <mxGraphModel dx="4753" dy="2477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-47" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="SecurityConfig.java" vertex="1">
+          <mxGeometry height="273" width="2165" x="660" y="1377" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-48" parent="zOeAqOJTaVbpDHCrpBqp-47" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PUBLIC (permitAll)&#xa;• POST /api/auth/register&#xa;• POST /api/auth/login&#xa;• /actuator/health&#xa;• /swagger-ui/** &amp; /v3/api-docs/**" vertex="1">
+          <mxGeometry height="198" width="260" x="43" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-49" parent="zOeAqOJTaVbpDHCrpBqp-47" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PROTECTED&#xa;anyRequest().authenticated()&#xa;→ Phải có JWT hợp lệ" vertex="1">
+          <mxGeometry height="78" width="406" x="353" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-50" parent="zOeAqOJTaVbpDHCrpBqp-47" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="STATELESS SESSION&#xa;SessionCreationPolicy.STATELESS&#xa;→ Không lưu server session" vertex="1">
+          <mxGeometry height="102" width="398" x="809" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-51" parent="zOeAqOJTaVbpDHCrpBqp-47" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="FILTER ORDER&#xa;addFilterBefore(jwtFilter,&#xa;UsernamePasswordAuthFilter)&#xa;→ JWT chạy TRƯỚC Spring filter" vertex="1">
+          <mxGeometry height="102" width="571" x="1257" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-52" parent="zOeAqOJTaVbpDHCrpBqp-47" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="CSRF Disabled&#xa;→ REST API không cần CSRF" vertex="1">
+          <mxGeometry height="78" width="260" x="1878" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-53" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="CẤU TRÚC JWT TOKEN" vertex="1">
+          <mxGeometry height="220" width="1025" x="2875" y="1403" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-54" parent="zOeAqOJTaVbpDHCrpBqp-53" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="HEADER&#xa;{alg: HS256, typ: JWT}" vertex="1">
+          <mxGeometry height="78" width="260" x="46" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-55" parent="zOeAqOJTaVbpDHCrpBqp-53" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PAYLOAD&#xa;{sub: username,&#xa; roles: [USER/ADMIN],&#xa; iat: now,&#xa; exp: now + 86400000ms}" vertex="1">
+          <mxGeometry height="150" width="260" x="381" y="43" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-56" parent="zOeAqOJTaVbpDHCrpBqp-53" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="SIGNATURE&#xa;HMAC_SHA256(&#xa;  base64(header) + &#39;.&#39; + base64(payload),&#xa;  Keys.hmacShaKeyFor(secret))" vertex="1">
+          <mxGeometry height="126" width="280" x="716" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-57" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-53" source="zOeAqOJTaVbpDHCrpBqp-54" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-55" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-58" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-53" source="zOeAqOJTaVbpDHCrpBqp-55" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-56" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-59" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="LUỒNG 3: GỌI API CÓ BẢO VỆ (Authenticated Request)" vertex="1">
+          <mxGeometry height="726" width="3240" x="3950" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-60" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client" vertex="1">
+          <mxGeometry height="54" width="103" x="46" y="399" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-61" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="JwtAuthenticationFilter&#xa;OncePerRequestFilter" vertex="1">
+          <mxGeometry height="54" width="400" x="413" y="131" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-62" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry x="1173" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-63" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry x="1686" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-64" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="JwtUtil&#xa;.validateToken" vertex="1">
+          <mxGeometry height="54" width="232" x="1057" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-65" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry x="1686" y="179" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-66" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry x="2424" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-67" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="CustomUserDetailsService" vertex="1">
+          <mxGeometry height="54" width="246" x="1564" y="307" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-68" parent="zOeAqOJTaVbpDHCrpBqp-59" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="SQL Server DB" vertex="1">
+          <mxGeometry height="75" width="115" x="2367" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-69" parent="zOeAqOJTaVbpDHCrpBqp-59" style="rhombus;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Token&#xa;hợp lệ?" vertex="1">
+          <mxGeometry height="162" width="162" x="1605" y="463" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-70" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="SecurityContextHolder&#xa;.setAuthentication()&#xa;UsernamePasswordAuthenticationToken" vertex="1">
+          <mxGeometry height="54" width="680" x="2084" y="443" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-71" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Controller&#xa;Task / Project / User" vertex="1">
+          <mxGeometry height="78" width="260" x="2951" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-72" parent="zOeAqOJTaVbpDHCrpBqp-59" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="filterChain.doFilter()&#xa;→ 401 Unauthorized" vertex="1">
+          <mxGeometry height="78" width="260" x="2294" y="547" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-73" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-60" style="curved=1;startArrow=none;endArrow=block;exitX=0.67;exitY=0;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-61" value="Authorization: Bearer JWT">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="281" y="158" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-74" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-61" style="curved=1;startArrow=none;endArrow=none;exitX=0.77;exitY=0;entryX=-Infinity;entryY=NaN;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-62" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="935" y="76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-75" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-62" style="curved=1;startArrow=none;endArrow=none;exitX=-Infinity;exitY=NaN;entryX=Infinity;entryY=-Infinity;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-63" value="1. Lấy Authorization header&#xa;2. Kiểm tra &#39;Bearer &#39;&#xa;3. Cắt token substring(7)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1426" y="76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-76" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-63" style="curved=1;startArrow=none;endArrow=block;exitX=Infinity;exitY=Infinity;entryX=1;entryY=0.34;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-61" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1426" y="144" />
+              <mxPoint x="935" y="144" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-77" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-61" style="curved=1;startArrow=none;endArrow=block;exitX=0.65;exitY=1;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-64" value="extractUsername token">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="935" y="303" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-78" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-64" style="curved=1;startArrow=none;endArrow=none;exitX=0.74;exitY=0;entryX=Infinity;entryY=Infinity;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-65" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1426" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-79" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-65" style="curved=1;startArrow=none;endArrow=none;exitX=Infinity;exitY=Infinity;entryX=Infinity;entryY=Infinity;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-66" value="getClaims → verifyWith HMAC-SHA256&#xa;extractUsername → so sánh&#xa;isTokenExpired → getExpiration">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1947" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-80" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-66" style="curved=1;startArrow=none;endArrow=block;exitX=Infinity;exitY=Infinity;entryX=1;entryY=0.13;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-64" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1947" y="259" />
+              <mxPoint x="1426" y="259" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-81" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-64" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.76;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-67" value="loadUserByUsername">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1426" y="334" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-82" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-67" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.25;entryX=0;entryY=0.46;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-68" value="query DB">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1947" y="306" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-83" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-68" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.61;entryX=0.95;entryY=1;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-67" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1947" y="397" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-84" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-64" style="curved=1;startArrow=none;endArrow=block;exitX=0.62;exitY=1;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-69" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1426" y="544" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-85" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-69" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.36;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-70" value="Có ✓">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1947" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-86" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-70" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.25;entryY=0;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-71" value="pass filterChain">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2857" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-87" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-71" style="curved=1;startArrow=none;endArrow=block;exitX=0.05;exitY=1;entryX=0.68;entryY=1;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-60" value="Response 200">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2857" y="681" />
+              <mxPoint x="281" y="681" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-88" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-59" source="zOeAqOJTaVbpDHCrpBqp-69" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.58;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-72" value="Không ✗">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1947" y="586" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-89" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="LUỒNG 2: ĐĂNG NHẬP &amp; CẤP JWT (POST /api/auth/login)" vertex="1">
+          <mxGeometry height="334" width="2614" x="7240" y="1346" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-90" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client&#xa;Frontend" vertex="1">
+          <mxGeometry height="54" width="182" x="46" y="239" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-91" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="AuthController&#xa;.login" vertex="1">
+          <mxGeometry height="54" width="221" x="461" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-92" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="AuthService&#xa;.login" vertex="1">
+          <mxGeometry height="54" width="200" x="957" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-93" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="AuthenticationManager&#xa;Spring Security" vertex="1">
+          <mxGeometry height="78" width="290" x="1431" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-94" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="CustomUserDetailsService" vertex="1">
+          <mxGeometry height="54" width="246" x="1987" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-95" parent="zOeAqOJTaVbpDHCrpBqp-89" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="SQL Server DB" vertex="1">
+          <mxGeometry height="75" width="115" x="2470" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-96" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="JwtUtil&#xa;.generateToken()" vertex="1">
+          <mxGeometry height="54" width="249" x="1452" y="184" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-97" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="JWT Token&#xa;header.payload.signature" vertex="1">
+          <mxGeometry height="78" width="297" x="1961" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-98" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry x="571" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-99" parent="zOeAqOJTaVbpDHCrpBqp-89" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="" vertex="1">
+          <mxGeometry x="1056" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-100" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-90" style="curved=1;startArrow=none;endArrow=block;exitX=0.65;exitY=-0.01;entryX=0.24;entryY=-0.01;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-91" value="POST /api/auth/login">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="344" y="61" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-101" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-91" style="curved=1;startArrow=none;endArrow=block;exitX=0.78;exitY=-0.01;entryX=0.2;entryY=-0.01;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-92" value="login req">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="819" y="61" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-102" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-92" style="curved=1;startArrow=none;endArrow=block;exitX=0.82;exitY=-0.01;entryX=0;entryY=0.32;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-93" value="authenticate(username, pw)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1294" y="67" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-103" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-93" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.26;entryX=0;entryY=0.21;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-94" value="loadUserByUsername">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1841" y="61" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-104" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-94" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.2;entryX=0;entryY=0.33;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-95" value="query by username">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2364" y="61" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-105" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-95" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.94;entryX=0.79;entryY=1;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-94" value="User entity">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2364" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-106" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-94" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.8;entryX=1;entryY=0.75;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-93" value="UserDetails">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1841" y="131" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-107" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-93" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.68;entryX=1;entryY=0.14;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-92" value="Authentication OK">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1294" y="123" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-108" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-92" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.83;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-96" value="generateToken(username, roles)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1294" y="211" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-109" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-96" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.25;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-97" value="HMAC-SHA256 ký token">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1841" y="211" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-110" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-97" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.77;entryX=0.77;entryY=0.99;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-92" value="token">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1841" y="285" />
+              <mxPoint x="1294" y="285" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-111" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-92" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.73;entryX=1;entryY=0.74;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-91" value="LoginResponse{token, username, roles}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="819" y="198" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-112" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-91" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.93;entryX=1;entryY=0.09;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-90" value="ApiResponse.success()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="344" y="216" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-113" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-90" style="curved=1;startArrow=none;endArrow=none;exitX=1;exitY=0.53;entryX=Infinity;entryY=Infinity;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-98" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="344" y="271" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-114" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-98" style="curved=1;startArrow=none;endArrow=none;exitX=Infinity;exitY=Infinity;entryX=Infinity;entryY=Infinity;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-99" value="Lưu JWT vào localStorage / Cookie">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="819" y="271" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-115" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-89" source="zOeAqOJTaVbpDHCrpBqp-99" style="curved=1;startArrow=none;endArrow=block;exitX=Infinity;exitY=Infinity;entryX=1;entryY=0.89;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-90" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="819" y="315" />
+              <mxPoint x="344" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-116" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="LUỒNG 1: ĐĂNG KÝ (POST /api/auth/register)" vertex="1">
+          <mxGeometry height="237" width="1886" x="9905" y="1395" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-117" parent="zOeAqOJTaVbpDHCrpBqp-116" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client&#xa;Frontend" vertex="1">
+          <mxGeometry height="54" width="182" x="46" y="119" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-118" parent="zOeAqOJTaVbpDHCrpBqp-116" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="AuthController&#xa;.register" vertex="1">
+          <mxGeometry height="54" width="241" x="478" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-119" parent="zOeAqOJTaVbpDHCrpBqp-116" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="AuthService&#xa;.register" vertex="1">
+          <mxGeometry height="54" width="221" x="878" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-120" parent="zOeAqOJTaVbpDHCrpBqp-116" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="SQL Server DB" vertex="1">
+          <mxGeometry height="75" width="115" x="1374" y="63" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-121" parent="zOeAqOJTaVbpDHCrpBqp-116" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="ApiResponse.success()&#xa;{status, user data}" vertex="1">
+          <mxGeometry height="78" width="292" x="1564" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-122" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-116" source="zOeAqOJTaVbpDHCrpBqp-117" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.14;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-118" value="POST /api/auth/register">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="353" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-123" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-116" source="zOeAqOJTaVbpDHCrpBqp-118" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-119" value="register req">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-124" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-116" source="zOeAqOJTaVbpDHCrpBqp-119" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.49;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-120" value="1. Kiểm tra username/email trùng&#xa;2. BCryptPasswordEncoder mã hóa pw&#xa;3. Gán Role USER mặc định&#xa;4. Save user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-125" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-116" source="zOeAqOJTaVbpDHCrpBqp-120" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.49;entryX=0;entryY=0.03;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-121" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1526" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zOeAqOJTaVbpDHCrpBqp-126" edge="1" parent="zOeAqOJTaVbpDHCrpBqp-116" source="zOeAqOJTaVbpDHCrpBqp-121" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.97;entryX=1;entryY=0.86;rounded=0;" target="zOeAqOJTaVbpDHCrpBqp-117" value="trả về">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1526" y="192" />
+              <mxPoint x="353" y="192" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
