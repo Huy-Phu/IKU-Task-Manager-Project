@@ -1,0 +1,385 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+  <diagram name="Trang-1" id="73iS7fM0hESxN2dUzdOy">
+    <mxGraphModel dx="4074" dy="2123" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NLWZjyEU-bmIoctfwA5--1" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client" vertex="1">
+          <mxGeometry height="54" width="103" x="1734" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--2" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="POST /api/auth/register" vertex="1">
+          <mxGeometry height="54" width="236" x="1529" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--3" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="POST /api/auth/login" vertex="1">
+          <mxGeometry height="54" width="215" x="1815" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--4" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="JWT Bearer token" vertex="1">
+          <mxGeometry height="54" width="188" x="1829" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--5" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Gửi Authorization: Bearer  cho API" vertex="1">
+          <mxGeometry height="78" width="260" x="1793" y="332" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--6" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Quy tắc kiểm tra Role + Membership" vertex="1">
+          <mxGeometry height="78" width="260" x="1793" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--7" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="POST /api/projects" vertex="1">
+          <mxGeometry height="54" width="199" x="46" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--8" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="created_by = user hiện tại" vertex="1">
+          <mxGeometry height="54" width="250" x="20" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--9" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/projects" vertex="1">
+          <mxGeometry height="54" width="191" x="345" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--10" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Xem project do mình tạo" vertex="1">
+          <mxGeometry height="54" width="240" x="320" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--11" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/projects" vertex="1">
+          <mxGeometry height="54" width="191" x="645" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--12" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Xem project mà user là project_member" vertex="1">
+          <mxGeometry height="78" width="260" x="611" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--13" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/users" vertex="1">
+          <mxGeometry height="54" width="169" x="886" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--14" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/users/{id}" vertex="1">
+          <mxGeometry height="54" width="202" x="1105" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--15" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PUT /api/users/{id}" vertex="1">
+          <mxGeometry height="54" width="202" x="1357" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--16" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Validate email hợp lệ, status ∈ {ACTIVE, INACTIVE}" vertex="1">
+          <mxGeometry height="102" width="260" x="1328" y="776" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--17" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="DELETE /api/users/{id}" vertex="1">
+          <mxGeometry height="54" width="227" x="1654" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--18" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Soft delete: status = INACTIVE" vertex="1">
+          <mxGeometry height="78" width="260" x="1638" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--19" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/tasks/my" vertex="1">
+          <mxGeometry height="54" width="197" x="1979" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--20" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Task có assignee_id = user hiện tại" vertex="1">
+          <mxGeometry height="78" width="260" x="1948" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--21" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/tasks/by-user/{userId}" vertex="1">
+          <mxGeometry height="78" width="260" x="2258" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--22" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Xem task theo userId cho mọi user" vertex="1">
+          <mxGeometry height="78" width="260" x="2258" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--23" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/tasks/by-user/{userId}" vertex="1">
+          <mxGeometry height="78" width="260" x="2568" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--24" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Chỉ xem task của chính mình (userId phải là người đăng nhập)" vertex="1">
+          <mxGeometry height="102" width="260" x="2568" y="776" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--25" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="GET /api/tasks/by-project/{projectId}" vertex="1">
+          <mxGeometry height="78" width="260" x="3188" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--26" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Rule: user phải là project_member của projectId" vertex="1">
+          <mxGeometry height="102" width="260" x="2878" y="776" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--27" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Trả toàn bộ task trong project" vertex="1">
+          <mxGeometry height="78" width="260" x="3188" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--28" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Chỉ trả task được assign cho user đăng nhập" vertex="1">
+          <mxGeometry height="78" width="260" x="3498" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--29" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="POST /api/tasks" vertex="1">
+          <mxGeometry height="54" width="176" x="4456" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--30" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="projectId bắt buộc và phải tồn tại" vertex="1">
+          <mxGeometry height="78" width="260" x="3808" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--31" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="title bắt buộc, max length = 200" vertex="1">
+          <mxGeometry height="78" width="260" x="4118" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--32" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="status mặc định = TODO" vertex="1">
+          <mxGeometry height="54" width="232" x="4428" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--33" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Không nhận assigneeId trong create contract" vertex="1">
+          <mxGeometry height="78" width="260" x="4709" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--34" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="deadline optional và phải &gt; now" vertex="1">
+          <mxGeometry height="78" width="260" x="5019" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--35" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="POST /api/tasks/{taskId}/assign" vertex="1">
+          <mxGeometry height="78" width="260" x="5622" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--36" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Rule: task.status != DONE" vertex="1">
+          <mxGeometry height="54" width="243" x="5329" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--37" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Rule: userId là project_member của project chứa task" vertex="1">
+          <mxGeometry height="102" width="260" x="5622" y="776" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--38" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Set assignee_id cho task" vertex="1">
+          <mxGeometry height="54" width="234" x="5932" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--39" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PATCH /api/tasks/{taskId}/status" vertex="1">
+          <mxGeometry height="78" width="260" x="6496" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--40" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Rule: task.status != DONE" vertex="1">
+          <mxGeometry height="54" width="243" x="6216" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--41" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Transition hợp lệ: TODO -&gt; IN_PROGRESS, TODO -&gt; DONE, IN_PROGRESS -&gt; DONE" vertex="1">
+          <mxGeometry height="126" width="260" x="6509" y="764" as="geometry" />
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--42" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--1" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.86;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1647" y="99" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--43" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--1" style="curved=1;startArrow=none;endArrow=block;exitX=0.99;exitY=0.86;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1923" y="99" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--44" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--3" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--45" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--4" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--46" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--47" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.57;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--7" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="145" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--48" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--7" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--49" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.59;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--9" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--50" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--9" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--10" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--51" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.61;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--11" value="USER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="741" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--52" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--11" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--12" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--53" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.63;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--13" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--54" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.68;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--14" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1206" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--55" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.77;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--15" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1458" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--56" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--15" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--57" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0.19;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--17" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1768" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--58" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--17" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--18" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--59" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=0.8;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--19" value="AUTH">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2078" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--60" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--19" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--61" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.77;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--21" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2388" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--62" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--21" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--22" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--63" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.66;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--23" value="USER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2698" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--64" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--23" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--24" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--65" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.59;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--25" value="AUTH">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3318" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--66" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--25" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.91;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--26" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3008" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--67" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--25" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--27" value="MANAGER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--68" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--25" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.91;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--28" value="USER">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3628" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--69" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.55;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--29" value="AUTH &amp; project_member">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4543" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--70" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--29" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.7;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--30" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3938" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--71" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--29" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.92;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--31" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4248" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--72" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--29" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--32" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--73" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--29" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.92;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--33" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4839" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--74" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--29" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.7;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--34" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5149" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--75" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.53;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--35" value="AUTH &amp; project_member">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5752" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--76" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--35" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.92;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--36" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5451" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--77" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--35" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--37" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--78" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--35" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.93;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--38" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6049" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--79" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.53;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--39" value="AUTH">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6626" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--80" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--39" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.94;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--40" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6338" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NLWZjyEU-bmIoctfwA5--81" edge="1" parent="1" source="NLWZjyEU-bmIoctfwA5--39" style="curved=1;startArrow=none;endArrow=block;exitX=0.53;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="NLWZjyEU-bmIoctfwA5--41" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6639" y="727" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

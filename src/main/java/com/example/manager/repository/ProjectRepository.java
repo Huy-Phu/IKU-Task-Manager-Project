@@ -1,0 +1,14 @@
+package com.example.manager.repository;
+
+import com.example.manager.entity.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface ProjectRepository extends JpaRepository<Project, Long> {
+
+    Optional<Project> findByCode(String code);
+
+    boolean existsByCode(String code);
+}
+

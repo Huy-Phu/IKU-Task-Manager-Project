@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+  <diagram name="Trang-1" id="QI3Xj2tj_y6lcjNmpdwm">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Xử lý Request" vertex="1">
+          <mxGeometry height="54" width="158" x="264" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Validation + Business Rules" vertex="1">
+          <mxGeometry height="54" width="251" x="217" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-3" parent="1" style="rhombus;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Thành công?" vertex="1">
+          <mxGeometry height="142" width="142" x="272" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Trả 200 OK (ApiResponse success)" vertex="1">
+          <mxGeometry height="78" width="260" x="96" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-5" parent="1" style="rhombus;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Loại lỗi" vertex="1">
+          <mxGeometry height="109" width="109" x="406" y="444" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="HTTP 400: validation lỗi hoặc business rule violation" vertex="1">
+          <mxGeometry height="78" width="260" x="20" y="627" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-7" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="HTTP 404: không tìm thấy user/project/task" vertex="1">
+          <mxGeometry height="78" width="260" x="330" y="627" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-8" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="HTTP 500: lỗi hệ thống" vertex="1">
+          <mxGeometry height="54" width="227" x="640" y="639" as="geometry" />
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-9" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-1" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-10" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-2" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-11" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-3" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.96;entryX=0.5;entryY=0;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-4" value="Yes">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="226" y="407" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-12" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-3" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.96;entryX=0.5;entryY=0;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-5" value="No">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="407" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-13" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-5" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.64;entryX=0.5;entryY=-0.01;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-6" value="400">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-14" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=-0.01;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-7" value="404">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3PnXMjtVKz1QcKhKSdM-15" edge="1" parent="1" source="E3PnXMjtVKz1QcKhKSdM-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.99;exitY=0.65;entryX=0.5;entryY=-0.01;rounded=0;" target="E3PnXMjtVKz1QcKhKSdM-8" value="500">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="753" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
