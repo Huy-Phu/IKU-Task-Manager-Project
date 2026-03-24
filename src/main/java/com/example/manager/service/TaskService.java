@@ -58,21 +58,54 @@ public class TaskService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        // Step 1: user phải thuộc project thì mới được xem task của project đó
         boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), user.getId());
         if (!isMember) {
             throw new BusinessException("User is not a member of this project");
         }
 
-        // Step 2: phân quyền theo role
-        // - MANAGER: xem toàn bộ task trong project
-        // - USER: chỉ xem task được assign cho chính mình
         boolean isManager = user.getRoles().stream()
                 .anyMatch(r -> "MANAGER".equals(r.getName()));
         if (isManager) {
             return taskRepository.findByProject(project);
         }
         return taskRepository.findByProjectAndAssignee(project, user);
+    }
+
+    /**
+     * Lọc task theo status.
+     * - MANAGER: xem tất cả task theo status
+     * - USER: chỉ xem task được assign cho chính mình theo status đó
+     */
+    public List<Task> getTasksByStatus(TaskStatus status, String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        boolean isManager = user.getRoles().stream()
+                .anyMatch(r -> "MANAGER".equals(r.getName()));
+
+        if (isManager) {
+            return taskRepository.findByStatus(status);
+        }
+        return taskRepository.findByStatusAndAssignee(status, user);
+    }
+
+    /**
+     * Lọc task theo status trong một project cụ thể.
+     * User phải là member của project đó.
+     */
+    public List<Task> getTasksByProjectAndStatus(Long projectId, TaskStatus status, String username) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new ResourceNotFoundException("Project not found"));
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), user.getId());
+        if (!isMember) {
+            throw new BusinessException("User is not a member of this project");
+        }
+
+        return taskRepository.findByProjectAndStatus(project, status);
     }
 
     @Transactional
@@ -104,7 +137,6 @@ public class TaskService {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
 
-        // Rule: task DONE thì không cho gán lại
         if (task.getStatus() == TaskStatus.DONE) {
             throw new BusinessException("Cannot assign a task that is already DONE");
         }
@@ -112,7 +144,6 @@ public class TaskService {
         User assignee = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + request.getUserId()));
 
-        // Rule: chỉ assign cho user thuộc project
         boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(
                 task.getProject().getId(), assignee.getId());
         if (!isMember) {
@@ -128,7 +159,6 @@ public class TaskService {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
 
-        // Rule: trạng thái DONE là trạng thái cuối, không cho update nữa
         if (task.getStatus() == TaskStatus.DONE) {
             throw new BusinessException("Cannot update status of a task that is already DONE");
         }
@@ -136,9 +166,7 @@ public class TaskService {
         TaskStatus newStatus = request.getStatus();
         TaskStatus current = task.getStatus();
 
-        // Status transition hợp lệ:
-        // TODO -> IN_PROGRESS hoặc TODO -> DONE (fast track)
-        // IN_PROGRESS -> DONE
+        // Transition hợp lệ: TODO→IN_PROGRESS, TODO→DONE (fast track), IN_PROGRESS→DONE
         if (current == TaskStatus.TODO && (newStatus == TaskStatus.IN_PROGRESS || newStatus == TaskStatus.DONE)) {
             task.setStatus(newStatus);
         } else if (current == TaskStatus.IN_PROGRESS && newStatus == TaskStatus.DONE) {

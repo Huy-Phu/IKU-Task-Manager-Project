@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.Set;
+
 public class UpdateUserRequest {
 
     @NotBlank(message = "Full name is required")
@@ -18,6 +20,13 @@ public class UpdateUserRequest {
     @NotBlank(message = "Status is required")
     @Size(max = 20)
     private String status;
+
+    /**
+     * Danh sách role muốn gán cho user. Nếu null thì không thay đổi role.
+     * Giá trị hợp lệ: "USER", "MANAGER" (hoặc cả hai).
+     * Ví dụ: ["MANAGER"] hoặc ["USER", "MANAGER"]
+     */
+    private Set<String> roles;
 
     public String getFullName() {
         return fullName;
@@ -41,5 +50,13 @@ public class UpdateUserRequest {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
     }
 }
