@@ -1,6 +1,7 @@
 package com.example.manager.service;
 
 import com.example.manager.dto.AssignTaskRequest;
+import com.example.manager.dto.CreateTaskInProjectRequest;
 import com.example.manager.dto.CreateTaskRequest;
 import com.example.manager.dto.UpdateTaskStatusRequest;
 import com.example.manager.entity.*;
@@ -58,24 +59,22 @@ public class TaskService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), user.getId());
-        if (!isMember) {
-            throw new BusinessException("User is not a member of this project");
-        }
-
         boolean isManager = user.getRoles().stream()
                 .anyMatch(r -> "MANAGER".equals(r.getName()));
+
+        if (!isManager) {
+            boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), user.getId());
+            if (!isMember) {
+                throw new BusinessException("User is not a member of this project");
+            }
+        }
+
         if (isManager) {
             return taskRepository.findByProject(project);
         }
         return taskRepository.findByProjectAndAssignee(project, user);
     }
 
-    /**
-     * Lọc task theo status.
-     * - MANAGER: xem tất cả task theo status
-     * - USER: chỉ xem task được assign cho chính mình theo status đó
-     */
     public List<Task> getTasksByStatus(TaskStatus status, String username) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
@@ -89,10 +88,6 @@ public class TaskService {
         return taskRepository.findByStatusAndAssignee(status, user);
     }
 
-    /**
-     * Lọc task theo status trong một project cụ thể.
-     * User phải là member của project đó.
-     */
     public List<Task> getTasksByProjectAndStatus(Long projectId, TaskStatus status, String username) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new ResourceNotFoundException("Project not found"));
@@ -100,9 +95,14 @@ public class TaskService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), user.getId());
-        if (!isMember) {
-            throw new BusinessException("User is not a member of this project");
+        boolean isManager = user.getRoles().stream()
+                .anyMatch(r -> "MANAGER".equals(r.getName()));
+
+        if (!isManager) {
+            boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), user.getId());
+            if (!isMember) {
+                throw new BusinessException("User is not a member of this project");
+            }
         }
 
         return taskRepository.findByProjectAndStatus(project, status);
@@ -116,19 +116,56 @@ public class TaskService {
         User creator = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), creator.getId());
-        if (!isMember) {
-            throw new BusinessException("Only project members can create tasks");
+        boolean isManager = creator.getRoles().stream()
+                .anyMatch(r -> "MANAGER".equals(r.getName()));
+
+        if (!isManager) {
+            boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), creator.getId());
+            if (!isMember) {
+                throw new BusinessException("Only project members can create tasks");
+            }
         }
 
+        return buildAndSaveTask(project, request.getTitle(), request.getDescription(),
+                request.getPriority(), request.getDeadline());
+    }
+
+    /**
+     * Tạo task theo projectId từ URL path.
+     * MANAGER: tạo trong bất kỳ project nào.
+     * USER: phải là member của project.
+     */
+    @Transactional
+    public Task createTaskInProject(Long projectId, CreateTaskInProjectRequest request, String username) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new ResourceNotFoundException("Project not found with id: " + projectId));
+
+        User creator = userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        boolean isManager = creator.getRoles().stream()
+                .anyMatch(r -> "MANAGER".equals(r.getName()));
+
+        if (!isManager) {
+            boolean isMember = projectMemberRepository.existsByProjectIdAndUserId(project.getId(), creator.getId());
+            if (!isMember) {
+                throw new BusinessException("Only project members can create tasks");
+            }
+        }
+
+        return buildAndSaveTask(project, request.getTitle(), request.getDescription(),
+                request.getPriority(), request.getDeadline());
+    }
+
+    private Task buildAndSaveTask(Project project, String title, String description,
+                                   TaskPriority priority, java.time.LocalDateTime deadline) {
         Task task = new Task();
         task.setProject(project);
-        task.setTitle(request.getTitle().trim());
-        task.setDescription(request.getDescription() != null ? request.getDescription().trim() : null);
-        task.setPriority(request.getPriority() != null ? request.getPriority() : TaskPriority.MEDIUM);
-        task.setDeadline(request.getDeadline());
+        task.setTitle(title.trim());
+        task.setDescription(description != null ? description.trim() : null);
+        task.setPriority(priority != null ? priority : TaskPriority.MEDIUM);
+        task.setDeadline(deadline);
         task.setStatus(TaskStatus.TODO);
-
         return taskRepository.save(task);
     }
 
@@ -166,7 +203,6 @@ public class TaskService {
         TaskStatus newStatus = request.getStatus();
         TaskStatus current = task.getStatus();
 
-        // Transition hợp lệ: TODO→IN_PROGRESS, TODO→DONE (fast track), IN_PROGRESS→DONE
         if (current == TaskStatus.TODO && (newStatus == TaskStatus.IN_PROGRESS || newStatus == TaskStatus.DONE)) {
             task.setStatus(newStatus);
         } else if (current == TaskStatus.IN_PROGRESS && newStatus == TaskStatus.DONE) {
@@ -176,5 +212,25 @@ public class TaskService {
         }
 
         return taskRepository.save(task);
+    }
+
+    /**
+     * Xóa task. Chỉ MANAGER được xóa.
+     */
+    @Transactional
+    public void deleteTask(Long taskId, String username) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
+
+        User actor = userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        boolean isManager = actor.getRoles().stream()
+                .anyMatch(r -> "MANAGER".equals(r.getName()));
+        if (!isManager) {
+            throw new BusinessException("Only MANAGER can delete tasks");
+        }
+
+        taskRepository.delete(task);
     }
 }

@@ -27,9 +27,7 @@ public class TaskController {
     @GetMapping("/my")
     @Operation(summary = "Get my tasks", description = "Get all tasks assigned to the current logged-in user")
     public ApiResponse<List<Task>> getMyTasks(Authentication authentication) {
-        String username = authentication.getName();
-        List<Task> tasks = taskService.getTasksForUser(username);
-        return ApiResponse.success(tasks);
+        return ApiResponse.success(taskService.getTasksForUser(authentication.getName()));
     }
 
     @GetMapping("/by-user/{userId}")
@@ -38,20 +36,16 @@ public class TaskController {
     public ApiResponse<List<Task>> getTasksByUser(
             @PathVariable Long userId,
             Authentication authentication) {
-        String username = authentication.getName();
-        List<Task> tasks = taskService.getTasksByUserId(userId, username);
-        return ApiResponse.success(tasks);
+        return ApiResponse.success(taskService.getTasksByUserId(userId, authentication.getName()));
     }
 
     @GetMapping("/by-project/{projectId}")
     @Operation(summary = "Get tasks by project",
-            description = "Get tasks of a project. User must be a project member.")
+            description = "MANAGER sees all tasks. USER sees only their own tasks in the project.")
     public ApiResponse<List<Task>> getTasksByProject(
             @PathVariable Long projectId,
             Authentication authentication) {
-        String username = authentication.getName();
-        List<Task> tasks = taskService.getTasksByProjectForUser(projectId, username);
-        return ApiResponse.success(tasks);
+        return ApiResponse.success(taskService.getTasksByProjectForUser(projectId, authentication.getName()));
     }
 
     @GetMapping("/by-status")
@@ -61,9 +55,7 @@ public class TaskController {
             @Parameter(description = "Task status: TODO, IN_PROGRESS, DONE", required = true)
             @RequestParam TaskStatus status,
             Authentication authentication) {
-        String username = authentication.getName();
-        List<Task> tasks = taskService.getTasksByStatus(status, username);
-        return ApiResponse.success(tasks);
+        return ApiResponse.success(taskService.getTasksByStatus(status, authentication.getName()));
     }
 
     @GetMapping("/by-project/{projectId}/by-status")
@@ -74,31 +66,27 @@ public class TaskController {
             @Parameter(description = "Task status: TODO, IN_PROGRESS, DONE", required = true)
             @RequestParam TaskStatus status,
             Authentication authentication) {
-        String username = authentication.getName();
-        List<Task> tasks = taskService.getTasksByProjectAndStatus(projectId, status, username);
-        return ApiResponse.success(tasks);
+        return ApiResponse.success(taskService.getTasksByProjectAndStatus(projectId, status, authentication.getName()));
     }
 
     @PostMapping
-    @Operation(summary = "Create task",
-            description = "Create a new task under a project. Creator must be a project member. Default status: TODO.")
+    @Operation(summary = "Create task (projectId in body)",
+            description = "Requires projectId in request body. Alternatively use POST /api/projects/{projectId}/tasks.")
     public ApiResponse<Task> createTask(
             @Valid @RequestBody CreateTaskRequest request,
             Authentication authentication) {
-        String username = authentication.getName();
-        Task task = taskService.createTask(request, username);
+        Task task = taskService.createTask(request, authentication.getName());
         return ApiResponse.success("Task created", task);
     }
 
     @PutMapping("/{taskId}/assign")
-    @Operation(summary = "Assign task",
-            description = "Assign a task to a user. The user must be a project member. Cannot assign if status is DONE.")
+    @Operation(summary = "Assign task to user",
+            description = "Assignee must be a project member. Cannot assign if task is DONE.")
     public ApiResponse<Task> assignTask(
             @PathVariable Long taskId,
             @Valid @RequestBody AssignTaskRequest request,
             Authentication authentication) {
-        String username = authentication.getName();
-        Task task = taskService.assignTask(taskId, request, username);
+        Task task = taskService.assignTask(taskId, request, authentication.getName());
         return ApiResponse.success("Task assigned", task);
     }
 
@@ -109,8 +97,17 @@ public class TaskController {
             @PathVariable Long taskId,
             @Valid @RequestBody UpdateTaskStatusRequest request,
             Authentication authentication) {
-        String username = authentication.getName();
-        Task task = taskService.updateTaskStatus(taskId, request, username);
+        Task task = taskService.updateTaskStatus(taskId, request, authentication.getName());
         return ApiResponse.success("Status updated", task);
+    }
+
+    @DeleteMapping("/{taskId}")
+    @Operation(summary = "Delete task",
+            description = "Only MANAGER can delete tasks. Task is permanently removed from the database.")
+    public ApiResponse<Void> deleteTask(
+            @PathVariable Long taskId,
+            Authentication authentication) {
+        taskService.deleteTask(taskId, authentication.getName());
+        return ApiResponse.success("Task deleted", null);
     }
 }
